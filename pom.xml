@@ -133,8 +133,8 @@
 					<includes>
 						<include>**/ParallelRun.java</include>
 					</includes>
-					<parallel>methods</parallel>
-					<threadCount>1</threadCount>
+					<parallel>classes</parallel>
+					<threadCount>2</threadCount>
 					<useUnlimitedThreads>false</useUnlimitedThreads>
 				</configuration>
 			</plugin>

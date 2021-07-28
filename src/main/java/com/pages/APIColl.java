@@ -123,9 +123,7 @@ public class APIColl {
         	String value = String.valueOf(apiFactory.getResponseValue(response, attribute));
         	Assert.assertTrue("Mimable tag present",value.equalsIgnoreCase("mineable"));
         	
-//            if(((List)response.jsonPath().get("data.'"+i+"'.tags")).contains("mineable")){
-//                System.out.println("**** " + response.jsonPath().get("data.'"+i+"'.name") +": currency Mime Test PASS" +  "response.getStatusCode() : " + response.getStatusCode());
-//            }
+
         
     }
 
