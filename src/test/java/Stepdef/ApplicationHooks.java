@@ -26,7 +26,7 @@ public class ApplicationHooks {
 		prop = configReader.init_prop();
 	}
 
-	@Before(value = "@UITest",order = 1 )
+	@Before(value = "@UITest", order = 1 )
 	public void launchBrowser() {
 		String browserName = prop.getProperty("browser");
 		driverFactory = new DriverFactory();

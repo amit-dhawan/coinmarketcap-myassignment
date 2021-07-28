@@ -13,11 +13,12 @@ import io.cucumber.testng.CucumberOptions;
 		monochrome = true,
 		glue = { "Stepdef" },
 		features = { "src/test/resources/features/UIScenario.feature" }
+//		,tags = "@Frontend_Task2"
 )
 
 public class UIRunner extends AbstractTestNGCucumberTests {
 	@Override
-	@DataProvider(parallel = true)
+	@DataProvider(parallel = false)
 	public Object[][] scenarios() {
 		return super.scenarios();
 	}
