@@ -131,13 +131,11 @@ public class CoinMarketPage {
 		List<WebElement> listitem = driver.findElements(priceList);
 		listitem.size();
 		boolean checkresult = true;
-		System.out.println("Total elements after filter are " + listitem.size());
 
 		Iterator<WebElement> itr = listitem.iterator();
 		while (itr.hasNext()) {
 			String currencywithsymbol = itr.next().getText();
 			BigDecimal res = parse(currencywithsymbol, Locale.US);
-			System.out.println(res);
 			if (res.compareTo(BigDecimal.valueOf(100)) != -1 && res.compareTo(BigDecimal.valueOf(100)) != 0) {
 				checkresult = false;
 			}
@@ -155,13 +153,11 @@ public class CoinMarketPage {
 		List<WebElement> listitem = driver.findElements(marketpriceList);
 		listitem.size();
 		boolean checkresult = true;
-		System.out.println("Total elements after filter are " + listitem.size());
-
+	
 		Iterator<WebElement> itr = listitem.iterator();
 		while (itr.hasNext()) {
 			String currencywithsymbol = itr.next().getText();
 			BigDecimal res = parse(currencywithsymbol, Locale.US);
-			System.out.println(res);
 			if (res.compareTo(BigDecimal.valueOf(1000000000)) != 1
 					&& res.compareTo(BigDecimal.valueOf(1000000000)) != 0) {
 				checkresult = false;

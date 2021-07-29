@@ -3,15 +3,18 @@ Feature: Back-end Testcases
 
   @APITest1
   Scenario Outline: PriceCoversion API Validation
-    When I fetch ID for the currency "<currency_symbol>"
-    Then I convert "<currency_symbol>" to "<convertToCurrency>" for "<amount>"
+    When I fetch ID for the currency "<baseCurrency>"
+    Then I convert "<baseCurrency>" to "<convertToCurrency>" for "<amount>"
 
     Examples: 
-      | currency_symbol | convertToCurrency | amount |
-      | BTC             | BOLI              |    500 |
+      | baseCurrency | convertToCurrency | amount |
+      | BTC          | BOLI              |      1 |
+      | USDT         | BOLI              |      1 |
+      | ETH          | BOLI              |      1 |
+
 
   @APITest2
-  Scenario: Info API vaidation
+  Scenario:  API technical documentation info validation
     When I fetch the Technical documentation Website for currency id "1027"
     Then I should see the following fields for currency id "1027"
       | fields        | values                                                       |
@@ -22,19 +25,21 @@ Feature: Back-end Testcases
       | platform      | null                                                         |
       | tags          | mineable                                                     |
 
+
   @APITest3
-  Scenario Outline: Info API validation with response and tag
-    When I fetch the Technical documentation Website for currency id "<currencyID>"
-    Then I validate response and mineable tag is associated with currency id "<currencyID>"
+  Scenario Outline: Verify mineable tag for the curriencies
+    When I fetch the curriencies by "<id>"
+    Then I validate response and mineable tag is associated with currency id "<id>"
 
     Examples: 
-      | currencyID |
-      |          1 |
-      |          2 |
-      |          3 |
-      |          4 |
-      |          5 |
-      |          6 |
-      |          7 |
-      |          8 |
-      |          9 |
+      | id |
+      |  1 |
+      |  2 |
+      |  3 |
+      |  4 |
+      |  5 |
+      |  6 |
+      |  7 |
+      |  8 |
+      |  9 |
+      | 10 |
