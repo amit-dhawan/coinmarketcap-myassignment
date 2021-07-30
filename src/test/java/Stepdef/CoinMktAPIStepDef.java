@@ -1,18 +1,20 @@
 package Stepdef;
 
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.*;
-
 import java.text.ParseException;
 import java.util.Map;
 
 import com.pages.APIColl;
-import com.qa.factory.APIFactory;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class CoinMktAPIStepDef {
 
 	private APIColl apiObj = new APIColl();
 	private int id;
+	private Response response;
 
 	@Then("^I should see the following fields for currency id \"(.*)\"$")
 	public void iShouldSeeTheFollowingFields(int currency_ID, DataTable fields) {
@@ -23,7 +25,7 @@ public class CoinMktAPIStepDef {
 
 	@Then("I validate response and mineable tag is associated with currency id {string}")
 	public void i_validate_mineable_tag_is_associated_with_currency_id(String currency) throws ParseException {
-
+		apiObj.isMineableTagPresent(response, currency);
 	}
 
 	@When("I fetch ID for the currency {string}")
@@ -43,7 +45,7 @@ public class CoinMktAPIStepDef {
 
 	@When("I fetch the curriencies by {string}")
 	public void i_fetch_the_curriencies_by(String id) {
-		apiObj.getCurrencyInfoByID(id);
+		response = apiObj.getCurrencyInfoByID(id);
 
 	}
 

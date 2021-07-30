@@ -125,18 +125,15 @@ public class APIColl {
 		}
 	}
 
-	public void getCurrencyInfoByID(String id) {
+	public Response getCurrencyInfoByID(String id) {
 		String endPoint = "/cryptocurrency/info";
 		HashMap<String, String> parameter = new HashMap<>();
 		parameter.put("id", id);
 		// Get response
 		response = apiFactory.executeRequest(endPoint, APIFactory.RequestMethod.GET, parameter, 200);
-		try {
-			isMineableTagPresent(response, id);
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		
+		return response;
+		
 
 	}
 
